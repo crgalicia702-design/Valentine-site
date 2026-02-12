@@ -1,0 +1,93 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Will you be my Valentine?</title>
+
+  <!-- Confetti Library -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+  <style>
+    body{
+      text-align:center;
+      font-family:Arial;
+      margin-top:80px;
+    }
+
+    img{
+      width:300px;
+      border-radius:20px;
+    }
+
+    .btn{
+      padding:15px 25px;
+      font-size:18px;
+      margin:20px;
+      cursor:pointer;
+      border:none;
+      border-radius:10px;
+    }
+
+    #yes{
+      background-color:#ff4d6d;
+      color:white;
+    }
+
+    #no{
+      background-color:#ccc;
+      position:absolute;
+    }
+  </style>
+</head>
+
+<body>
+
+<h1>Will you be my Valentine?</h1>
+
+<img src="https://la-familia-green.myshopify.com/cdn/shop/products/va89etsy_1024x1024.jpg?v=1671644205">
+
+<p>Pick one!</p>
+
+<button id="yes" class="btn">Yes :)</button>
+<button id="no" class="btn">No</button>
+
+
+<script>
+
+//////// CONFETTI + PAGE CHANGE ////////
+
+document.getElementById("yes").addEventListener("click", function(){
+
+  confetti({
+    particleCount: 200,
+    spread: 120,
+    origin: { y: 0.6 }
+  });
+
+  // Wait a second then go to next page
+  setTimeout(() => {
+    window.location.href = "yes.html";
+  }, 1200);
+
+});
+
+
+
+//////// RUNAWAY BUTTON ////////
+
+const noBtn = document.getElementById("no");
+
+noBtn.addEventListener("mouseover", () => {
+
+  const x = Math.random() * window.innerWidth * 0.8;
+  const y = Math.random() * window.innerHeight * 0.8;
+
+  noBtn.style.left = `${x}px`;
+  noBtn.style.top = `${y}px`;
+
+});
+
+</script>
+
+</body>
+</html>
+
